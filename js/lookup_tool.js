@@ -46,7 +46,8 @@ function addressSearch() {
     var params = {
         'key': API_KEY,
         'address': address,
-        'roles': ['legislatorlowerbody', 'legislatorupperbody']
+        'roles': ['legislatorlowerbody', 'legislatorupperbody'],
+        'levels': 'administrativeArea1'
 
     }
 
@@ -77,8 +78,8 @@ function addressSearch() {
         }
         else {
             setFoundDivisions(divisions);
-            console.log(data);
-         console.log(divisions);
+       //     console.log(data);
+       //  console.log(divisions);
 
 
             $.each(divisions, function(division_id, division){
@@ -101,7 +102,7 @@ function addressSearch() {
                                 'pseudo_id': pseudo_id
                             };
 
-                             console.log(officials[official]);
+                //             console.log(officials[official]);
                             var person = officials[official];
                             info['person'] = person;
 
