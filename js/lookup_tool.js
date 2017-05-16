@@ -46,7 +46,7 @@ function addressSearch() {
     var params = {
         'key': API_KEY,
         'address': address,
-        'roles': legislatorLowerbody|legislatorUpperBody
+        'roles': 'legislatorLowerbody|legislatorUpperBody'
 
     }
 
