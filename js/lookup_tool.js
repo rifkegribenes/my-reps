@@ -46,7 +46,10 @@ function addressSearch() {
     var params = {
         'key': API_KEY,
         'address': address
+
     }
+
+
     $.when($.getJSON(INFO_API, params)).then(function(data){
         var divisions = data['divisions'];
         var officials = data['officials'];
@@ -65,8 +68,7 @@ function addressSearch() {
         var county_people = [];
         var local_people = [];
 
-        // console.log(data);
-        // console.log(divisions);
+
 
         if (divisions === undefined) {
             $("#no-response-container").show();
@@ -74,6 +76,9 @@ function addressSearch() {
         }
         else {
             setFoundDivisions(divisions);
+            console.log(data);
+         console.log(divisions);
+
 
             $.each(divisions, function(division_id, division){
                 // console.log(division.name);
@@ -95,7 +100,7 @@ function addressSearch() {
                                 'pseudo_id': pseudo_id
                             };
 
-                            // console.log(officials[official])
+                             console.log(officials[official]);
                             var person = officials[official];
                             info['person'] = person;
 
@@ -145,8 +150,8 @@ function addressSearch() {
                 }
             });
 
-            $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
-
+      /*        $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
+*/
             var template = new EJS({'text': $('#tableGuts').html()});
             
     /*        if (show_federal) {
@@ -159,6 +164,7 @@ function addressSearch() {
             if (show_state) {
                 if (state_people.length == 0)
                     $('#state-container').hide();
+                console.log(state_people);
                 $('#state-results tbody').append(template.render({people: state_people}));
             } else {
                 $('#state-container').hide()
