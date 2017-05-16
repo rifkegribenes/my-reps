@@ -8,6 +8,7 @@ body {
 h1, h2, h3, h4, h5 {
     font-family: 'Bitter', serif;
     font-weight: bold;
+    color: #ef6c2f;
 }
 
 h1 {
@@ -16,7 +17,7 @@ h1 {
 }
 
 h1 a, h1 a:hover {
-    color: #444444;
+    color: #ef6c2f;
     text-decoration: none;
 }
 

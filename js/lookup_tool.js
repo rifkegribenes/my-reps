@@ -1,9 +1,9 @@
 // configuration for showing representatives at different levels of government
 
-var show_federal = true; //change this to false to hide federal results
+var show_federal = false; //change this to false to hide federal results
 var show_state   = true;
-var show_county  = true;
-var show_local   = true;
+var show_county  = false;
+var show_local   = false;
 
 var geocoder = new google.maps.Geocoder;
 var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives';
@@ -149,12 +149,12 @@ function addressSearch() {
 
             var template = new EJS({'text': $('#tableGuts').html()});
             
-            if (show_federal) {
+    /*        if (show_federal) {
                 $('#federal-results tbody').append(template.render({people: federal_people}));
             } else {
                 $('#federal-container').hide()
                 $('#fed-nav').hide();
-            }
+            } */
 
             if (show_state) {
                 if (state_people.length == 0)
@@ -165,7 +165,7 @@ function addressSearch() {
                 $('#state-nav').hide();
             }                
 
-            if (show_county) {
+    /*        if (show_county) {
                 if (county_people.length == 0) {
                     $('#county-container').hide();
                     if (selected_county == '')
@@ -200,7 +200,7 @@ function addressSearch() {
             } else {
                 $('#local-container').hide()
                 $('#local-nav').hide();
-            }
+            } */
 
             $('#response-container').show();
             $("#no-response-container").hide();
