@@ -1,10 +1,10 @@
 port:  5000
 markdown: kramdown
-name: "My Reps"
+name: "Oregon Can't Wait"
 url: http://findmyreps.datamade.us
 encoding: utf-8
-timezone: America/Chicago
-description: "Enter your address to find and contact your federal, state, county and local elected representatives"
+timezone: America/Los_Angeles
+description: "It’s time to demand action in Salem"
 gems:
   - jekyll-redirect-from
 google_api_key: AIzaSyDQZgx6BxWj84ZZZwwjgBOI46e0bmLIq5A
