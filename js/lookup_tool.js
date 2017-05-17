@@ -40,10 +40,11 @@ var all_people = {};
 var pseudo_id = 1;
 
 function addressSearch() {
+    console.log(43);
     var address = $('#address').val();
 //    $.address.parameter('address', encodeURIComponent(address));
     address = encodeURIComponent(address);
-
+console.log(address);
  /*   var params = {
         'key': API_KEY,
         'address': address,
@@ -55,9 +56,10 @@ function addressSearch() {
  //   $.when($.getJSON(INFO_API, params)).then(function(data){
 
     var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&fields=divisions%2Cofficials(name%2Cphones)&key=' + API_KEY;
+    console.log(url);
 
       $.when($.getJSON(url)).then(function(data){
-
+console.log(60);
 
         var divisions = data['divisions'];
         var officials = data['officials'];
@@ -89,6 +91,7 @@ function addressSearch() {
 
 
             $.each(divisions, function(division_id, division){
+                console.log(92);
                 // console.log(division.name);
                 if (typeof division.officeIndices !== 'undefined'){
                     
@@ -161,7 +164,7 @@ function addressSearch() {
       /*        $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
 */
             var template = new EJS({'text': $('#tableGuts').html()});
-            
+            console.log(165);
     /*        if (show_federal) {
                 $('#federal-results tbody').append(template.render({people: federal_people}));
             } else {
@@ -170,6 +173,7 @@ function addressSearch() {
             } */
 
             if (show_state) {
+                console.log(174);
                 if (state_people.length == 0)
                     $('#state-container').hide();
                 console.log(state_people);
