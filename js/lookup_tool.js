@@ -55,7 +55,7 @@ console.log(address);
 
  //   $.when($.getJSON(INFO_API, params)).then(function(data){
 
-    var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&fields=divisions%2Cofficials(name%2Cphones)&key=' + API_KEY;
+    var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&key=' + API_KEY;
     console.log(url);
 
       $.when($.getJSON(url)).then(function(data){
