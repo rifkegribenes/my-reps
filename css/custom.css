@@ -73,3 +73,9 @@ h1 a, h1 a:hover {
 a {
     color: #ef6c2f;
 }
+
+a[href^="tel:"] {
+  font-size: 2em;
+  font-weight: bold;
+    padding: 20px;
+}

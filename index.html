@@ -271,16 +271,18 @@ layout: default
         </div>
         <div class='col-xs-8'>
 
-            <!-- Add your contact instructions here! -->
-
             <p><strong>Contact <%= info.person.name %></strong></p>
+            <p><strong>Talking points for your call:</strong></p>
+            <ul><li>We can’t wait any longer for a revenue plan</li>
+            <li>Budget cuts are threatening our jobs, our healthcare, our consumers and the communities that rely on the services we provide.</li>
+            <li>Legislators need to take action today to <strong>Invest in Oregon</strong></li></ul>
             <hr />
             <% if (info.phones){ %>
                 <% $.each(info.phones, function(i, phone){ %>
                     <% if ((i + 1) < info.phones.length){ %>
-                        <i class='fa fa-fw fa-phone'></i> <%= phone %><br />
+                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= phone %>'><%= phone %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-phone'></i> <%= phone %>
+                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= phone %>'><%= phone %></a>
                     <% } %>
                 <% }) %>
                 <br />
