@@ -41,16 +41,24 @@ var pseudo_id = 1;
 
 function addressSearch() {
     var address = $('#address').val();
-    $.address.parameter('address', encodeURIComponent(address));
+//    $.address.parameter('address', encodeURIComponent(address));
+    address = encodeURIComponent(address);
 
-    var params = {
+ /*   var params = {
         'key': API_KEY,
         'address': address,
         'roles': ['legislatorlowerbody', 'legislatorupperbody']
     }
+    */
 
 
-    $.when($.getJSON(INFO_API, params)).then(function(data){
+ //   $.when($.getJSON(INFO_API, params)).then(function(data){
+
+    var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&fields=divisions%2Cofficials(name%2Cphones)&key=' + API_KEY;
+
+      $.when($.getJSON(url)).then(function(data){
+
+
         var divisions = data['divisions'];
         var officials = data['officials'];
         var offices = data['offices'];
