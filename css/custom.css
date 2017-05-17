@@ -85,3 +85,22 @@ a {
 btn-contact {
     background: #ef6c2f;
 }
+
+
+@media (max-width: 599px) {
+
+    .lead {
+        text-align: left;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+
+    #address-search {
+        border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    }
+
+}
