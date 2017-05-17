@@ -10,7 +10,7 @@ layout: default
             <input type="text" class="form-control" placeholder="Address (e.g. 1234 Main St. SE Salem OR 97302)" id="address" name="address" >
             <span class="input-group-btn">
                 <button class="btn btn-info" type="submit" id="address-search"><i class='fa fa-search'></i> <span class='hidden-xs hidden-sm'>Search</span></button>
-                <button class="btn btn-default" type="submit" id="find-me"><i class='fa fa-crosshairs'></i> <span class='hidden-xs hidden-sm'>Find me</span> </button>
+             <button class="btn btn-default hidden-xs hidden-sm" type="submit" id="find-me"><i class='fa fa-crosshairs'></i> <span class='hidden-xs hidden-sm'>Find me</span> </button>
             </span>
         </div>
 
@@ -148,12 +148,14 @@ layout: default
         </div>
         <div class='col-xs-8'>
 
-            <p><strong>Call <%= info.person.name %></strong></p>
             <p><strong>Talking points for your call:</strong></p>
             <ul><li>We can’t wait any longer for a revenue plan</li>
-            <li>Budget cuts are threatening our jobs, our healthcare, our consumers and the communities that rely on the services we provide.</li>
             <li>Legislators need to take action today to <strong>Invest in Oregon</strong></li></ul>
-            <hr />
+            </div>
+
+        </div>
+        <div class='row'>
+        <hr />
             <div class='phone-cont'>
             <% if (info.phones){ %>
                 <% $.each(info.phones, function(i, phone){ %>
@@ -165,8 +167,6 @@ layout: default
                 <% }) %>
                 <br />
             <% } %>
-            </div>
-
         </div>
     </div>
 </script>
