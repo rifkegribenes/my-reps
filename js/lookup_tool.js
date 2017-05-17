@@ -6,7 +6,7 @@ var show_county  = false;
 var show_local   = false;
 
 var geocoder = new google.maps.Geocoder;
-var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives';
+var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives?levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&fields=divisions%2Cofficials(name%2Cphones)';
 
 // parsing out division IDs
 var federal_pattern = "ocd-division/country:us";
@@ -45,10 +45,7 @@ function addressSearch() {
 
     var params = {
         'key': API_KEY,
-        'address': address,
-        'roles': ['legislatorlowerbody', 'legislatorupperbody'],
-        'levels': 'administrativeArea1'
-
+        'address': address
     }
 
 
