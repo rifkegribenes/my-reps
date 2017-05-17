@@ -287,3 +287,7 @@ function convertToPlainString(text) {
     if (text === undefined) return '';
     return decodeURIComponent(text);
 }
+
+function formatPhone(phone) {
+    return phone.replace(/\D/g,'');
+}

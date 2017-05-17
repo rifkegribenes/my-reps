@@ -78,6 +78,10 @@ a {
   font-size: 2em;
   font-weight: bold;
 }
+
+.phone-cont i {
+  font-size: 2em !important;
+}
 btn-contact {
     background: #ef6c2f;
 }
