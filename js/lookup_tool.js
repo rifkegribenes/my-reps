@@ -40,23 +40,11 @@ var all_people = {};
 var pseudo_id = 1;
 
 function addressSearch() {
-    console.log(43);
     var address = $('#address').val();
-//    $.address.parameter('address', encodeURIComponent(address));
     address = encodeURIComponent(address);
-console.log(address);
- /*   var params = {
-        'key': API_KEY,
-        'address': address,
-        'roles': ['legislatorlowerbody', 'legislatorupperbody']
-    }
-    */
 
-
- //   $.when($.getJSON(INFO_API, params)).then(function(data){
 
     var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&key=' + API_KEY;
-    console.log(url);
 
       $.when($.getJSON(url)).then(function(data){
 console.log(60);
@@ -86,13 +74,10 @@ console.log(60);
         }
         else {
             setFoundDivisions(divisions);
-       //     console.log(data);
-       //  console.log(divisions);
 
 
             $.each(divisions, function(division_id, division){
-                console.log(92);
-                // console.log(division.name);
+
                 if (typeof division.officeIndices !== 'undefined'){
                     
                     $.each(division.officeIndices, function(i, office){
@@ -111,7 +96,6 @@ console.log(60);
                                 'pseudo_id': pseudo_id
                             };
 
-                //             console.log(officials[official]);
                             var person = officials[official];
                             info['person'] = person;
 
@@ -161,19 +145,10 @@ console.log(60);
                 }
             });
 
-      /*        $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
-*/
+
             var template = new EJS({'text': $('#tableGuts').html()});
-            console.log(165);
-    /*        if (show_federal) {
-                $('#federal-results tbody').append(template.render({people: federal_people}));
-            } else {
-                $('#federal-container').hide()
-                $('#fed-nav').hide();
-            } */
 
             if (show_state) {
-                console.log(174);
                 if (state_people.length == 0)
                     $('#state-container').hide();
                 console.log(state_people);
@@ -182,43 +157,6 @@ console.log(60);
                 $('#state-container').hide()
                 $('#state-nav').hide();
             }                
-
-    /*        if (show_county) {
-                if (county_people.length == 0) {
-                    $('#county-container').hide();
-                    if (selected_county == '')
-                        $('#county-container-not-found').hide();
-                    else
-                        $('#county-container-not-found').show();
-                }
-                else {
-                    $('#county-container').show();
-                    $('#county-container-not-found').hide();
-                }
-
-                $('#county-results tbody').append(template.render({people: county_people}));
-            } else {
-                $('#county-container').hide()
-                $('#county-nav').hide();
-            }  
-
-            if (show_local) {       
-                if (local_people.length == 0) {
-                    $('#local-container').hide();
-                    if (selected_local == '')
-                        $('#local-container-not-found').hide();
-                    else
-                        $('#local-container-not-found').show();
-                }
-                else {
-                    $('#local-container').show();
-                    $('#local-container-not-found').hide();
-                }
-                $('#local-results tbody').append(template.render({people: local_people}));   
-            } else {
-                $('#local-container').hide()
-                $('#local-nav').hide();
-            } */
 
             $('#response-container').show();
             $("#no-response-container").hide();
