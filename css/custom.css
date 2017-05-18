@@ -118,7 +118,9 @@ small, .small {
     .lead {
         text-align: left;
     }
-
+    .no-script {
+    font-size: 16px;
+    }
 }
 
 @media (max-width: 992px) {
