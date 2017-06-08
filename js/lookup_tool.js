@@ -38,6 +38,7 @@ var selected_county = '';
 var selected_local = '';
 var all_people = {};
 var pseudo_id = 1;
+var btn_id = '';
 
 function addressSearch() {
     var address = $('#address').val();
@@ -93,11 +94,13 @@ console.log(60);
                                 'urls': null,
                                 'emails': null,
                                 'division_id': division_id,
-                                'pseudo_id': pseudo_id
+                                'pseudo_id': pseudo_id,
+                                'btn_id': btn_id
                             };
 
                             var person = officials[official];
                             info['person'] = person;
+                            info['btn_id'] = person.name.replace(/\s+/g, '');
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
