@@ -148,7 +148,7 @@ layout: default
         </div>
         <div class='col-xs-8'>
 
-            <p><strong>Talking points for your call:</strong></p>
+            <p><strong>Talking points for your call or email:</strong></p>
             <ul><li>We can't wait any longer for a revenue plan</li>
             <li>Corporations need to pay their fair share in taxes so we can <strong>Invest in Oregon</strong></li>
             <li>As your constituent, I want you to make this happen before the end of the legislative session</li>
@@ -165,6 +165,20 @@ layout: default
                         <i class='fa fa-fw fa-phone'></i> <a class="<%= info.btn_id %>-ph phonecall" href='tel:<%= formatPhone(phone) %>'><%= phone %></a><br />
                     <% } else { %>
                         <i class='fa fa-fw fa-phone'></i> <a class="<%= info.btn_id %>-ph phonecall" href='tel:<%= formatPhone(phone) %>'><%= phone %></a>
+                    <% } %>
+                <% }) %>
+                <br />
+            <% } %>
+        </div>
+        <div class='row'>
+        <hr />
+            <div class='email-cont'>
+            <% if (info.emails){ %>
+                <% $.each(info.emails, function(i, email){ %>
+                    <% if ((i + 1) < info.emails.length){ %>
+                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>'><%= email %></a><br />
+                    <% } else { %>
+                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>'><%= email %></a>
                     <% } %>
                 <% }) %>
                 <br />
