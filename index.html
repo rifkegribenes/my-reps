@@ -162,9 +162,9 @@ layout: default
             <% if (info.phones){ %>
                 <% $.each(info.phones, function(i, phone){ %>
                     <% if ((i + 1) < info.phones.length){ %>
-                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= formatPhone(phone) %>'><%= phone %></a><br />
+                        <i class='fa fa-fw fa-phone'></i> <a class="<%= info.btn_id %>-ph" href='tel:<%= formatPhone(phone) %>'><%= phone %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= formatPhone(phone) %>'><%= phone %></a>
+                        <i class='fa fa-fw fa-phone'></i> <a class="<%= info.btn_id %>-ph" href='tel:<%= formatPhone(phone) %>'><%= phone %></a>
                     <% } %>
                 <% }) %>
                 <br />
