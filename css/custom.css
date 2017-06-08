@@ -74,16 +74,27 @@ a {
     color: #ef6c2f;
 }
 
-.phone-cont,
-.email-cont {
+.phone-cont{
   font-size: 2em;
   font-weight: bold;
+}
+
+.email-cont {
+font-size: 1.5em;
+word-break: break-all;
+font-weight: bold;
 }
 
 .phone-cont i,
 .email-cont i {
   font-size: 2em !important;
 }
+
+.email-cont i {
+padding-left: 20px;
+}
+
+
 btn-contact {
     background: #ef6c2f;
 }
