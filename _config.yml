@@ -1,7 +1,7 @@
 port:  5000
 markdown: kramdown
 name: "Oregon Can't Wait"
-url: http://findmyreps.datamade.us
+url: http://action.seiu503.org
 encoding: utf-8
 timezone: America/Los_Angeles
 description: "It’s time to demand action in Salem"
