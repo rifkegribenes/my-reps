@@ -33,16 +33,16 @@
     {% else %}
       <meta content="{{ site.description }}" property="og:description">
     {% endif %}
-    {% if page.url %}
-      <meta content="{{ site.url }}{{ page.url }}" property="og:url">
-    {% endif %}
+
+      <meta content="{{ site.url }}" property="og:url">
+
     {% if page.date %}
       <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
     {% endif %}
     {% if page.image %}
       <meta content="{{ site.url }}/{{ page.image }}" property="og:image">
     {% else %}
-      <meta content="{{ site.url }}/images/usa.png" property="og:image">
+      <meta content="{{ site.url }}/images/OregonCantWaitBanner_1425.gif" property="og:image">
     {% endif %}
     {% if page.categories %}
       {% for category in page.categories limit:1 %}
@@ -64,9 +64,9 @@
     {% else %}
       <meta name="twitter:title" content="{{ site.title }}">
     {% endif %}
-    {% if page.url %}
-      <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-    {% endif %}
+
+      <meta name="twitter:url" content="{{ site.url }}">
+
     {% if page.description %}
       <meta name="twitter:description" content="{{ page.description }}">
     {% else %}
@@ -75,8 +75,17 @@
     {% if page.image %}
       <meta name="twitter:image:src" content="{{ site.url }}/images/{{ page.image }}">
     {% else %}
-      <meta name="twitter:image:src" content="{{ site.url }}/images/usa.png">
+      <meta name="twitter:image:src" content="{{ site.url }}/images/OregonCantWaitBanner_1425.gif">
     {% endif %}
+    
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TLQ8Q6');</script>
+<!-- End Google Tag Manager -->
+    
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
