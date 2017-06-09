@@ -39,7 +39,7 @@ var selected_local = '';
 var all_people = {};
 var pseudo_id = 1;
 var btn_id = '';
-var honorific = '';
+var addressee = '';
 
 function addressSearch() {
     var address = $('#address').val();
@@ -96,7 +96,8 @@ console.log(60);
                                 'emails': null,
                                 'division_id': division_id,
                                 'pseudo_id': pseudo_id,
-                                'btn_id': btn_id
+                                'btn_id': btn_id,
+                                'addressee': addressee
                             };
 
                             var person = officials[official];
@@ -105,7 +106,7 @@ console.log(60);
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
                             var title = info.office.name.split(' ')[2];
-                            var addressee = (title + '%20' + lastName);
+                            addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
