@@ -83,6 +83,7 @@ function addressSearch() {
                     
                     $.each(division.officeIndices, function(i, office){
                         var office_name = offices[office];
+                        var role = offices[office]["roles"][0];
 
                         $.each(offices[office]['officialIndices'], function(i, official){
                             var info = {
@@ -95,7 +96,8 @@ function addressSearch() {
                                 'emails': null,
                                 'division_id': division_id,
                                 'pseudo_id': pseudo_id,
-                                'btn_id': btn_id
+                                'btn_id': btn_id,
+                                'role': role
                             };
 
                             var person = officials[official];
@@ -103,10 +105,13 @@ function addressSearch() {
                             info['btn_id'] = person.name.replace(/\s+/g, '');
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
-                            var branch = offices[office]['officialIndices'];
-                            console.log('branch = ' + branch);
                             var title;
-                            addressee = (title + '%20' + lastName);
+                            console.log(person.name, info['role']);
+                            if (info['role'] === 'legislatorUpperBody')
+                            { title = "Senator" }
+                            else if (info['role']  === 'legislatorLowerBody')
+                                { title = "Representative" }
+                            var addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
