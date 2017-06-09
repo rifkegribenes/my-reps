@@ -39,6 +39,7 @@ var selected_local = '';
 var all_people = {};
 var pseudo_id = 1;
 var btn_id = '';
+var honorific = '';
 
 function addressSearch() {
     var address = $('#address').val();
@@ -101,6 +102,10 @@ console.log(60);
                             var person = officials[official];
                             info['person'] = person;
                             info['btn_id'] = person.name.replace(/\s+/g, '');
+                            var nameArr = person.name.split(' ');
+                            var lastName = nameArr[nameArr.length-1];
+                            var title = info.office.name.split(' ')[2];
+                            var addressee = (title + ' ' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
