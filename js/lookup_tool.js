@@ -97,7 +97,8 @@ function addressSearch() {
                                 'division_id': division_id,
                                 'pseudo_id': pseudo_id,
                                 'btn_id': btn_id,
-                                'role': role
+                                'role': role, 
+                                'addressee': addressee
                             };
 
                             var person = officials[official];
@@ -110,8 +111,8 @@ function addressSearch() {
                             { title = "Senator" }
                             else if (info['role']  === 'legislatorLowerBody')
                                 { title = "Representative" }
-                            addressee = (title + '%20' + lastName);
-                            console.log(person.name, title, addressee);
+                            info['addressee'] = (title + '%20' + lastName);
+                            console.log(person.name, title, info['addressee']);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
