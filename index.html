@@ -177,9 +177,9 @@ layout: default
             <% if (info.emails){ %>
                 <% $.each(info.emails, function(i, email){ %>
                     <% if ((i + 1) < info.emails.length){ %>
-                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>?body=Dear%20<%= addressee %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a><br />
+                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>?body=Dear%20<%= info['addressee'] %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>?body=Dear%20<%= addressee %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a>
+                        <i class='fa fa-fw fa-envelope-o'></i> <a class="<%= info.btn_id %>-email emailsent" href='mailto:<%= email %>?body=Dear%20<%= info['addressee'] %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a>
                     <% } %>
                 <% }) %>
                 <br />
