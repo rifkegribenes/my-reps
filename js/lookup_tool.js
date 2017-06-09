@@ -107,9 +107,9 @@ console.log(60);
                             var branch = offices[office]['officialIndices'];
                             var title;
                             if (branch.name.split(' ')[2] === 'Senate')
-                            { title = "Senator" };
+                            { title = "Senator" }
                             else if (branch.name.split(' ')[2] === 'House')
-                                { title = "Representative" };
+                                { title = "Representative" }
                             addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
