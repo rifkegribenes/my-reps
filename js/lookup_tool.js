@@ -111,7 +111,7 @@ function addressSearch() {
                             { title = "Senator" }
                             else if (info['role']  === 'legislatorLowerBody')
                                 { title = "Representative" }
-                            var addressee = (title + '%20' + lastName);
+                            addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
