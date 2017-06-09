@@ -49,7 +49,6 @@ function addressSearch() {
     var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&key=' + API_KEY;
 
       $.when($.getJSON(url)).then(function(data){
-console.log(60);
 
         var divisions = data['divisions'];
         var officials = data['officials'];
@@ -107,10 +106,6 @@ console.log(60);
                             var branch = offices[office]['officialIndices'];
                             console.log('branch = ' + branch);
                             var title;
-                          /*  if (branch.name.split(' ')[2] === 'Senate')
-                            { title = "Senator" }
-                            else if (branch.name.split(' ')[2] === 'House')
-                                { title = "Representative" } */
                             addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
