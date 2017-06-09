@@ -105,11 +105,12 @@ console.log(60);
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
                             var branch = offices[office]['officialIndices'];
+                            console.log('branch = ' + branch);
                             var title;
-                            if (branch.name.split(' ')[2] === 'Senate')
+                          /*  if (branch.name.split(' ')[2] === 'Senate')
                             { title = "Senator" }
                             else if (branch.name.split(' ')[2] === 'House')
-                                { title = "Representative" }
+                                { title = "Representative" } */
                             addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
