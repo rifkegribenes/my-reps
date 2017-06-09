@@ -40,6 +40,7 @@ var all_people = {};
 var pseudo_id = 1;
 var btn_id = '';
 var addressee = '';
+var toLine = '';
 
 function addressSearch() {
     var address = $('#address').val();
@@ -112,7 +113,8 @@ function addressSearch() {
                             else if (info['role']  === 'legislatorLowerBody')
                                 { title = "Representative" }
                             info['addressee'] = (title + '%20' + lastName);
-                            console.log(person.name, title, info['addressee']);
+                            toLine = info['addressee'];
+                            console.log(person.name, title, toLine);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
