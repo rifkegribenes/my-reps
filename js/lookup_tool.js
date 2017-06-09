@@ -106,12 +106,12 @@ function addressSearch() {
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
                             var title;
-                            console.log(person.name, info['role']);
                             if (info['role'] === 'legislatorUpperBody')
                             { title = "Senator" }
                             else if (info['role']  === 'legislatorLowerBody')
                                 { title = "Representative" }
                             addressee = (title + '%20' + lastName);
+                            console.log(person.name, title, addressee);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
