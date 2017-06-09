@@ -105,7 +105,7 @@ console.log(60);
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
                             var title = info.office.name.split(' ')[2];
-                            var addressee = (title + ' ' + lastName);
+                            var addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];
