@@ -96,8 +96,7 @@ console.log(60);
                                 'emails': null,
                                 'division_id': division_id,
                                 'pseudo_id': pseudo_id,
-                                'btn_id': btn_id,
-                                'addressee': addressee
+                                'btn_id': btn_id
                             };
 
                             var person = officials[official];
@@ -105,7 +104,12 @@ console.log(60);
                             info['btn_id'] = person.name.replace(/\s+/g, '');
                             var nameArr = person.name.split(' ');
                             var lastName = nameArr[nameArr.length-1];
-                            var title = info.office.name.split(' ')[2];
+                            var branch = offices[office]['officialIndices'];
+                            var title;
+                            if (branch.name.split(' ')[2] === 'Senate')
+                            { title = "Senator" };
+                            else if (branch.name.split(' ')[2] === 'House')
+                                { title = "Representative" };
                             addressee = (title + '%20' + lastName);
 
                             if (typeof person.channels !== 'undefined'){
