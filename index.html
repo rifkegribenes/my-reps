@@ -120,7 +120,7 @@ layout: default
             </td>
             <% if (info.phones || info.emails){ %>
                 <td class='nowrap'>
-                    <button type="button" class="btn btn-default btn-contact" data-toggle="modal" data-id="<%= info.pseudo_id %>">
+                    <button type="button" id="<%= info.btn_id %>" class="btn btn-default btn-contact" data-toggle="modal" data-id="<%= info.pseudo_id %>">
                         Contact <i class='fa fa-chevron-right'></i>
                     </button>
                 </td>
@@ -132,7 +132,7 @@ layout: default
 </script>
 
 <script id="modalGuts" type="text/EJS">
-    
+
     <div class='row'>
         <div class='col-xs-4'>
             <% if (info.person.photoUrl) { %>
@@ -162,9 +162,24 @@ layout: default
             <% if (info.phones){ %>
                 <% $.each(info.phones, function(i, phone){ %>
                     <% if ((i + 1) < info.phones.length){ %>
-                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= formatPhone(phone) %>'><%= phone %></a><br />
+                        <i class='fa fa-fw fa-phone'></i> <a id="<%= info.btn_id %>-ph" class="phonecall" href='tel:<%= formatPhone(phone) %>'><%= phone %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-phone'></i> <a href='tel:<%= formatPhone(phone) %>'><%= phone %></a>
+                        <i class='fa fa-fw fa-phone'></i> <a id="<%= info.btn_id %>-ph" class="phonecall" href='tel:<%= formatPhone(phone) %>'><%= phone %></a>
+                    <% } %>
+                <% }) %>
+                <br />
+            <% } %>
+        </div>
+        </div>
+        <div class='row'>
+        <hr />
+            <div class='email-cont'>
+            <% if (info.emails){ %>
+                <% $.each(info.emails, function(i, email){ %>
+                    <% if ((i + 1) < info.emails.length){ %>
+                        <i class='fa fa-fw fa-envelope-o'></i> <a id="<%= info.btn_id %>-email" class="emailsent" href='mailto:<%= email %>?subject=Oregon%20can%27t%20wait?body=Dear%20<%= toLine %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a><br />
+                    <% } else { %>
+                        <i class='fa fa-fw fa-envelope-o'></i> <a id="<%= info.btn_id %>-email" class="emailsent" href='mailto:<%= email %>?subject=Oregon%20can%27t%20wait?body=Dear%20<%= toLine %>%0D%0A%0D%0AWe%20can%27t%20wait%20any%20longer%20for%20a%20revenue%20plan.%20Corporations%20need%20to%20pay%20their%20fair%20share%20in%20taxes%20so%20we%20can%20Invest%20in%20Oregon.%20As%20your%20constituent%2C%20I%20want%20you%20to%20make%20this%20happen%20before%20the%20end%20of%20the%20legislative%20session.'><%= email %></a>
                     <% } %>
                 <% }) %>
                 <br />
@@ -184,7 +199,7 @@ layout: default
       $("#address").val(convertToPlainString($.address.parameter('address')));
       if ($("#address").val())
         addressSearch();
-      
+
       $('#address-search').click(function(){
         addressSearch();
       });
@@ -196,12 +211,12 @@ layout: default
             scrollTop: scroll_to.offset().top
         }, 1000);
       });
-      
+
       $('#find-me').click(function(){
-        findMe(); 
+        findMe();
         return false;
       });
-      
+
       $(":text").keydown(function(e){
           var key =  e.keyCode ? e.keyCode : e.which;
           if(key === 13) {
@@ -212,3 +227,4 @@ layout: default
     });
   //]]>
 </script>
+

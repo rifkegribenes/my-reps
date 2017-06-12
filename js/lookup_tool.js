@@ -38,6 +38,9 @@ var selected_county = '';
 var selected_local = '';
 var all_people = {};
 var pseudo_id = 1;
+var btn_id = '';
+var addressee = '';
+var toLine = '';
 
 function addressSearch() {
     var address = $('#address').val();
@@ -47,7 +50,6 @@ function addressSearch() {
     var url = 'https://www.googleapis.com/civicinfo/v2/representatives?address=' + address + '&includeOffices=true&levels=administrativeArea1&roles=legislatorlowerbody&roles=legislatorupperbody&key=' + API_KEY;
 
       $.when($.getJSON(url)).then(function(data){
-console.log(60);
 
         var divisions = data['divisions'];
         var officials = data['officials'];
@@ -82,6 +84,7 @@ console.log(60);
                     
                     $.each(division.officeIndices, function(i, office){
                         var office_name = offices[office];
+                        var role = offices[office]["roles"][0];
 
                         $.each(offices[office]['officialIndices'], function(i, official){
                             var info = {
@@ -93,11 +96,25 @@ console.log(60);
                                 'urls': null,
                                 'emails': null,
                                 'division_id': division_id,
-                                'pseudo_id': pseudo_id
+                                'pseudo_id': pseudo_id,
+                                'btn_id': btn_id,
+                                'role': role, 
+                                'addressee': addressee
                             };
 
                             var person = officials[official];
                             info['person'] = person;
+                            info['btn_id'] = person.name.replace(/\s+/g, '');
+                            var nameArr = person.name.split(' ');
+                            var lastName = nameArr[nameArr.length-1];
+                            var title;
+                            if (info['role'] === 'legislatorUpperBody')
+                            { title = "Senator" }
+                            else if (info['role']  === 'legislatorLowerBody')
+                                { title = "Representative" }
+                            info['addressee'] = (title + '%20' + lastName);
+                            toLine = info['addressee'];
+                            console.log(person.name, title, toLine);
 
                             if (typeof person.channels !== 'undefined'){
                                 var channels = [];

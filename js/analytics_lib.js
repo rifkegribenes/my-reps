@@ -10,7 +10,7 @@
  *
  */
 
-var analyticsTrackingCode = 'UA-39054699-17'; //enter your tracking code here
+var analyticsTrackingCode = 'UA-11685370-22'; //<-- added SEIU 503 UA
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', analyticsTrackingCode]);
